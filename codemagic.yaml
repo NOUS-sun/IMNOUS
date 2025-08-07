@@ -1,13 +1,13 @@
 workflows:
-  flutter-build:
-    name: Flutter Build
-    instance_type: mac_mini
+  android-workflow:
+    name: Android Workflow
     environment:
+      groups:
+        - linux
+      xcode: latest
       flutter: stable
     scripts:
       - name: Install dependencies
         script: flutter pub get
-      - name: Build APK
-        script: flutter build apk --release
-    artifacts:
-      - build/app/outputs/flutter-apk/*.apk
+      - name: Build Android app
+        script: flutter build apk
